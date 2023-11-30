@@ -1,3 +1,9 @@
-from django.shortcuts import render
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from .models import Category
 
-# Create your views here.
+class CategoryList(APIView):
+    def get(self, request):
+        categories = Category.objects.all()
+        return Response(categories)
+
