@@ -37,7 +37,11 @@ SECRET_KEY = 'django-insecure-kp5zh$x%uaix(^fo%3wlfpm%3@vf=b4zf^!==+#j@0=al6)f8*
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [ '8000-anthonyrajlucas-anto-pro-ij37pdrk7p.us2.codeanyapp.com' ]
+
+CSRF_COOKIE_SECURE = False  # If developing locally with HTTP
+
+CSRF_TRUSTED_ORIGINS = ['https://8000-anthonyrajlucas-anto-pro-ij37pdrk7p.us2.codeanyapp.com']
 
 
 # Application definition
