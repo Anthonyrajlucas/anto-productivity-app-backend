@@ -2,7 +2,7 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from .models import Profile
 from .serializers import ProfileSerializer
-from django.http importHttp404
+from django.http import Http404
 from rest_framework import status
 
 class ProfileList(APIView):
@@ -13,6 +13,7 @@ class ProfileList(APIView):
 
 
 class ProfileDetail(APIView):
+    serializer_class = ProfileSerializer
     def get_object(self, pk):
         try:
             profile=Profile.objects.get(pk=pk)
