@@ -1,6 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import User
-from .models import State, Category, Priority
+from states.models import State
+from categories.models import Category
+from priorities.models import Priority
 
 class Task(models.Model):
 
