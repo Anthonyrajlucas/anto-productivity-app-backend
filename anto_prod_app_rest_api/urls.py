@@ -24,5 +24,6 @@ urlpatterns = [
     path('', include('categories.urls')),
     path('', include('priorities.urls')),
     path('', include('states.urls')),
+    path('', include('tasks.urls')),
     path('api-auth/', include('rest_framework.urls')),
 ]
