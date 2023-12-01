@@ -1,3 +1,10 @@
-from django.shortcuts import render
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from .models import Priority
 
-# Create your views here.
+class PriorityList(APIView):
+
+    def get(self, request):
+        priorities = Priority.objects.all()
+        serializer = PrioritySerializer(priorities, many= True)
+        return Response(serializer.data)
