@@ -1,8 +1,10 @@
 from rest_framework import serializers
 from .models import Task
+from django.contrib.auth.models import User 
+
 
 class TaskSerializer(serializers.ModelSerializer):
-    assigned = serializers.StringRelatedField(many=True)
+    assigned = serializers.PrimaryKeyRelatedField(queryset=User.objects.all(), many=True)
     priority = serializers.StringRelatedField()
     category = serializers.StringRelatedField()
     state = serializers.StringRelatedField()
