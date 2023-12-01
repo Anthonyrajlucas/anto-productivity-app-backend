@@ -59,6 +59,7 @@ INSTALLED_APPS = [
     'profiles',
     'categories',
     'priorities',
+    'states',
 ]
 
 MIDDLEWARE = [
