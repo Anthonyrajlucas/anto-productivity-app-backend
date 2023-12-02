@@ -1,5 +1,5 @@
 from django.shortcuts import get_object_or_404
-
+from django.db.models import Q
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from .models import Task
@@ -10,10 +10,25 @@ from rest_framework import status
 class TaskList(APIView):
 
     def get(self, request):
-        tasks = Task.objects.all()
+        title_query = request.GET.get('title', '')
+        priority_query = request.GET.get('priority', '')
+        category_query = request.GET.get('category', '')
+        state_query = request.GET.get('state', '')
+        
+        if title_query:
+            tasks = Task.objects.filter(Q(title__icontains=title_query))
+        elif priority_query:
+            tasks = Task.objects.filter(Q(priority__name__icontains=priority_query))
+        elif category_query:
+            tasks = Task.objects.filter(Q(category__name__icontains=category_query))
+        elif state_query:
+            tasks = Task.objects.filter(Q(state__name__icontains=state_query))        
+        else:
+            tasks = Task.objects.all()
+            
         serializer = TaskSerializer(tasks, many=True)
         return Response(serializer.data)
-        
+
 class TaskDetail(APIView):
     serializer_class = TaskSerializer
 
