@@ -9,7 +9,7 @@ class Task(models.Model):
     title = models.CharField(max_length=255)
     description = models.TextField(blank=True, null=True)
     due_date = models.DateField()
-    is_overdue = models.BooleanField(default=False)
+    is_overdue = models.BooleanField(default=False, editable=False)
     file_attachment = models.FileField(upload_to='images/', null=True, blank=True)
     assigned = models.ManyToManyField(User, related_name='tasks')
     priority = models.ForeignKey(Priority, on_delete=models.CASCADE)
