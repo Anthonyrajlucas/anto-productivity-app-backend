@@ -1,5 +1,6 @@
 from django.shortcuts import get_object_or_404
-from django.db.models import Q
+from rest_framework import generics, permissions, filters, status
+from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from .models import Task
@@ -8,23 +9,33 @@ from django.http import Http404
 from rest_framework import status
 
 class TaskList(APIView):
+    serializer_class = TaskSerializer
+    queryset = Task.objects.all()
+
+    filter_backends = [
+        filters.OrderingFilter,
+        filters.SearchFilter,
+        DjangoFilterBackend,
+    ]
+
+    filterset_fields = [
+        'assigned__profile',  
+    ]
+
+    search_fields = [
+        'title',
+        'priority__name',
+        'category__name',
+        'state__name',
+    ]
+
+    ordering_fields = [
+        'created_at',
+        'due_date',
+    ]
 
     def get(self, request):
-        title_query = request.GET.get('title', '')
-        priority_query = request.GET.get('priority', '')
-        category_query = request.GET.get('category', '')
-        state_query = request.GET.get('state', '')
-        
-        if title_query:
-            tasks = Task.objects.filter(Q(title__icontains=title_query))
-        elif priority_query:
-            tasks = Task.objects.filter(Q(priority__name__icontains=priority_query))
-        elif category_query:
-            tasks = Task.objects.filter(Q(category__name__icontains=category_query))
-        elif state_query:
-            tasks = Task.objects.filter(Q(state__name__icontains=state_query))        
-        else:
-            tasks = Task.objects.all()
+        tasks = Task.objects.all()
             
         serializer = TaskSerializer(tasks, many=True)
         return Response(serializer.data)
