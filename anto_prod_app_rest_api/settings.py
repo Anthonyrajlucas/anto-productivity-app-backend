@@ -66,7 +66,7 @@ DEBUG = 'FALSE'
 
 ALLOWED_HOSTS = [ '8000-anthonyrajlucas-anto-pro-ij37pdrk7p.us2.codeanyapp.com',
                   'localhost', 
-                  'anto-productivity-app-backend.herokuapp.com' ]
+                  'anto-productivity-app-backend-6c122e357cb1.herokuapp.com' ]
 
 CSRF_COOKIE_SECURE = False  # If developing locally with HTTP
 
