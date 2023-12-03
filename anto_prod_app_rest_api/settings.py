@@ -62,7 +62,7 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 os.environ.setdefault("SECRET_KEY", "CreateANEWRandomValueHere")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get('DEV', '').upper() == 'TRUE'
+DEBUG = 'FALSE'
 
 ALLOWED_HOSTS = [ '8000-anthonyrajlucas-anto-pro-ij37pdrk7p.us2.codeanyapp.com',
                   'localhost', 
