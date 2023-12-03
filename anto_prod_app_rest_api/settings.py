@@ -65,7 +65,8 @@ os.environ.setdefault("SECRET_KEY", "CreateANEWRandomValueHere")
 DEBUG = True in os.environ
 
 ALLOWED_HOSTS = [ '8000-anthonyrajlucas-anto-pro-ij37pdrk7p.us2.codeanyapp.com',
-                  'localhost', 'anto-productivity-app-backend.herokuapp.com' ]
+                  'localhost', 
+                  'anto-productivity-app-backend.herokuapp.com' ]
 
 CSRF_COOKIE_SECURE = False  # If developing locally with HTTP
 
