@@ -62,7 +62,7 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 os.environ.setdefault("SECRET_KEY", "CreateANEWRandomValueHere")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True in os.environ
+DEBUG = os.environ.get('DEV', '').upper() == 'TRUE'
 
 ALLOWED_HOSTS = [ '8000-anthonyrajlucas-anto-pro-ij37pdrk7p.us2.codeanyapp.com',
                   'localhost', 
@@ -115,11 +115,11 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
- if 'CLIENT_ORIGIN' in os.environ:
+if 'CLIENT_ORIGIN' in os.environ:
      CORS_ALLOWED_ORIGINS = [
          os.environ.get('CLIENT_ORIGIN')
      ]
- else:
+else:
      CORS_ALLOWED_ORIGIN_REGEXES = [
          r"^https://.*\.gitpod\.io$",
      ]
