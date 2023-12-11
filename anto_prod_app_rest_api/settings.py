@@ -59,23 +59,22 @@ REST_AUTH_SERIALIZERS = {
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.getenv('SECRET_KEY')
-os.environ.setdefault("SECRET_KEY", "welcome1")
 
-#os.environ.setdefault("SECRET_KEY")
+os.environ.setdefault("SECRET_KEY", "CreateANEWRandomValueHere")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
 ALLOWED_HOSTS = [ '8000-anthonyrajlucas-anto-pro-ij37pdrk7p.us2.codeanyapp.com',
                   'localhost', 
-                  'anto-productivity-app-backend-6c122e357cb1.herokuapp.com' ]
+                  'anto-productivity-app-backend-6c122e357cb1.herokuapp.com',
+                  '8000-anthonyrajl-antoproduct-b9vdau46okg.ws-eu106.gitpod.io' ]
 
-CSRF_COOKIE_SECURE = False  # If developing locally with HTTP
+#CSRF_COOKIE_SECURE = False  # If developing locally with HTTP
 
-CSRF_TRUSTED_ORIGINS = ['https://8000-anthonyrajlucas-anto-pro-ij37pdrk7p.us2.codeanyapp.com']
+#CSRF_TRUSTED_ORIGINS = ['https://8000-anthonyrajlucas-anto-pro-ij37pdrk7p.us2.codeanyapp.com']
 
 CORS_ORIGIN_ALLOW_ALL = True
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -123,14 +122,16 @@ if 'CLIENT_ORIGIN' in os.environ:
      CORS_ALLOWED_ORIGINS = [
          os.environ.get('CLIENT_ORIGIN')
      ]
-if 'CLIENT_ORIGIN_DEV' in os.environ:
-    extracted_url = re.match(
-        r'^.+-', os.environ.get('CLIENT_ORIGIN_DEV', ''), re.IGNORECASE).group(0)
-    CORS_ALLOWED_ORIGIN_REGEXES = [
-        rf"{extracted_url}(eu|us)\d+\w\.gitpod\.io$",
-    ]
+else:
+     CORS_ALLOWED_ORIGIN_REGEXES = [
+         r"^https://.*\.gitpod\.io$",
+     ]
 
 CORS_ALLOW_CREDENTIALS = True
+
+JWT_AUTH_COOKIE = 'my-app-auth'
+JWT_AUTH_REFRESH_COOKE = 'my-refresh-token'
+JWT_AUTH_SAMESITE = 'None'
 
 ROOT_URLCONF = 'anto_prod_app_rest_api.urls'
 
@@ -156,21 +157,17 @@ WSGI_APPLICATION = 'anto_prod_app_rest_api.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-#'if 'DEV' in os.environ:
-#  DATABASES = {
-#    'default': {
-#        'ENGINE': 'django.db.backends.sqlite3',
-#        'NAME': BASE_DIR / 'db.sqlite3',
-#    }
-#}
-#else:'
-database_url = os.environ.get("DATABASE_URL")
-if database_url:
-    DATABASES = {'default': dj_database_url.parse(database_url.encode('utf-8'))}
-
-#DATABASES = {
-#    'default': dj_database_url.parse(os.environ.get("DATABASE_URL").encode('utf-8'))
-#}
+if 'DEV' in os.environ:
+  DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
+}
+else:
+ DATABASES = {
+         'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
+     }
 
 
 
@@ -208,7 +205,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_URL = 'static/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
