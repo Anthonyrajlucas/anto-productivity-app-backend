@@ -59,8 +59,9 @@ REST_AUTH_SERIALIZERS = {
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.getenv('SECRET_KEY')
+os.environ.setdefault("SECRET_KEY", "welcome1")
 
-os.environ.setdefault("SECRET_KEY")
+#os.environ.setdefault("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
@@ -155,17 +156,21 @@ WSGI_APPLICATION = 'anto_prod_app_rest_api.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-if 'DEV' in os.environ:
-  DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
-else:
-  DATABASES = {
-         'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
-     }
+#'if 'DEV' in os.environ:
+#  DATABASES = {
+#    'default': {
+#        'ENGINE': 'django.db.backends.sqlite3',
+#        'NAME': BASE_DIR / 'db.sqlite3',
+#    }
+#}
+#else:'
+database_url = os.environ.get("DATABASE_URL")
+if database_url:
+    DATABASES = {'default': dj_database_url.parse(database_url.encode('utf-8'))}
+
+#DATABASES = {
+#    'default': dj_database_url.parse(os.environ.get("DATABASE_URL").encode('utf-8'))
+#}
 
 
 
