@@ -63,16 +63,17 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 os.environ.setdefault("SECRET_KEY", "CreateANEWRandomValueHere")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = [ '8000-anthonyrajlucas-anto-pro-ij37pdrk7p.us2.codeanyapp.com',
                   'localhost', 
                   'anto-productivity-app-backend-6c122e357cb1.herokuapp.com',
-                  '8000-anthonyrajl-antoproduct-b9vdau46okg.ws-eu106.gitpod.io' ]
+                  '8000-anthonyrajl-antoproduct-b9vdau46okg.ws-eu106.gitpod.io', 
+                  '8000-anthonyrajl-antoproduct-roek4vuyysc.ws-eu107.gitpod.io']
 
-#CSRF_COOKIE_SECURE = False  # If developing locally with HTTP
+CSRF_COOKIE_SECURE = False  # If developing locally with HTTP
 
-#CSRF_TRUSTED_ORIGINS = ['https://8000-anthonyrajlucas-anto-pro-ij37pdrk7p.us2.codeanyapp.com']
+CSRF_TRUSTED_ORIGINS = ['https://8000-anthonyrajl-antoproduct-roek4vuyysc.ws-eu107.gitpod.io']
 
 CORS_ORIGIN_ALLOW_ALL = True
 # Application definition
@@ -128,10 +129,6 @@ else:
      ]
 
 CORS_ALLOW_CREDENTIALS = True
-
-JWT_AUTH_COOKIE = 'my-app-auth'
-JWT_AUTH_REFRESH_COOKE = 'my-refresh-token'
-JWT_AUTH_SAMESITE = 'None'
 
 ROOT_URLCONF = 'anto_prod_app_rest_api.urls'
 
@@ -205,7 +202,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
