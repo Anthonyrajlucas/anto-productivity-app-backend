@@ -56,20 +56,7 @@ class TaskDetail(generics.RetrieveUpdateDestroyAPIView):
             return Response(serializer.data)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     
-    def create(self, request):
-        try:
-            # Retrieve priority and category objects
-            priority = get_object_or_404(Priority, pk=request.data.get('priority'))
-            category = get_object_or_404(Category, pk=request.data.get('category'))
-
-            # Add owner to request data
-            request.data['owner'] = self.request.user.pk
-
-            serializer = TaskSerializer(data=request.data)
-            if serializer.is_valid():
-                serializer.save()
-                return Response(serializer.data, status=status.HTTP_201_CREATED)
-            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-        except Exception as e:
-            print(f"An error occurred: {str(e)}")
-            return Response({'error': 'Internal Server Error'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+    def delete(self, request, pk):
+        task = self.get_object(pk)
+        task.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
