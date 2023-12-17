@@ -78,6 +78,15 @@ CSRF_TRUSTED_ORIGINS = ['https://8000-anthonyrajl-antoproduct-roek4vuyysc.ws-eu1
 CORS_ORIGIN_ALLOW_ALL = True
 # Application definition
 
+CORS_ALLOW_METHODS = [
+    'DELETE',
+    'GET',
+    'OPTIONS',
+    'PATCH',
+    'POST',
+    'PUT',
+]
+
 INSTALLED_APPS = [
     'cloudinary_storage',
     'django.contrib.admin',
