@@ -8,7 +8,7 @@ class Task(models.Model):
 
     title = models.CharField(max_length=255)
     description = models.TextField(blank=True, null=True)
-    due_date = models.DateField()
+    due_date = models.DateField(blank=True, null=True)
     is_overdue = models.BooleanField(default=False, editable=False)
     file_attachment = models.FileField(upload_to='images/', null=True, blank=True)
     assigned = models.ManyToManyField(User, related_name='tasks')
