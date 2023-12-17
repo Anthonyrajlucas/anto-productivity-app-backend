@@ -3,7 +3,7 @@ from rest_framework import generics, permissions, filters, status
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from .models import Task
+from .models import Task, Priority, Category
 from .serializers import TaskSerializer
 from django.http import Http404
 from rest_framework import status
