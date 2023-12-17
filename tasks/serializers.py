@@ -18,7 +18,7 @@ class TaskSerializer(serializers.ModelSerializer):
     def to_representation(self, instance):
         representation = super(TaskSerializer, self).to_representation(instance)
         today = date.today()
-        due_date_str = representation['due_date']
+        due_date_str = representation.get('due_date')
 
         if due_date_str:
             due_date = datetime.strptime(due_date_str, '%Y-%m-%d').date()
