@@ -63,7 +63,7 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 os.environ.setdefault("SECRET_KEY", "CreateANEWRandomValueHere")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = [ '8000-anthonyrajlucas-anto-pro-ij37pdrk7p.us2.codeanyapp.com',
                   'localhost', 
@@ -126,7 +126,13 @@ MIDDLEWARE = [
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
+
+if 'postgresql' in socket.gethostbyname(socket.gethostname()):
+    DEBUG_TOOLBAR_CONFIG = {
+        'SHOW_TOOLBAR_CALLBACK': lambda request: True,
+    }
 
 if 'CLIENT_ORIGIN' in os.environ:
      CORS_ALLOWED_ORIGINS = [
