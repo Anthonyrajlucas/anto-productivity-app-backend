@@ -8,7 +8,7 @@ from .serializers import TaskSerializer
 from django.http import Http404
 from rest_framework import status
 
-class TaskList(generics.ListAPIView):
+class TaskList(generics.ListCreateAPIView):
     serializer_class = TaskSerializer
     queryset = Task.objects.all()
 
@@ -34,7 +34,10 @@ class TaskList(generics.ListAPIView):
         'due_date',
     ]
 
-class TaskDetail(APIView):
+    def perform_create(self, serializer):
+        serializer.save(owner=self.request.user)
+
+class TaskDetail(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = TaskSerializer
 
     def get_object(self, pk):
