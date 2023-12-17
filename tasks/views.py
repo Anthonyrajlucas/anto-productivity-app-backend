@@ -54,8 +54,12 @@ class TaskDetail(APIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     
     def post(self, request):
+        priority = get_object_or_404(Priority, pk=request.data.get('priority'))
+        category = get_object_or_404(Category, pk=request.data.get('category'))
+
         serializer = TaskSerializer(data=request.data)
         if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
+           serializer.save()
+           return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
