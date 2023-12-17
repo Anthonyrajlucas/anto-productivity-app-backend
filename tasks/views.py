@@ -1,53 +1,62 @@
-# Imports
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-# 3rd party:
-from django.db.models import Count
-from rest_framework import generics, permissions, filters
+from django.shortcuts import get_object_or_404
+from rest_framework import generics, permissions, filters, status
 from django_filters.rest_framework import DjangoFilterBackend
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-# Internal:
-from .models import Task
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from .models import Task, Priority, Category
 from .serializers import TaskSerializer
-from anto_prod_app_rest_api.permissions import IsOwnerOrReadOnly
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
+from django.http import Http404
+from rest_framework import status
 
 class TaskList(generics.ListCreateAPIView):
-    """
-    A class to list tasks.
-    """
     serializer_class = TaskSerializer
     queryset = Task.objects.all()
+
     filter_backends = [
+        DjangoFilterBackend,
         filters.OrderingFilter,
         filters.SearchFilter,
-        DjangoFilterBackend,
     ]
+
+    filterset_fields = [
+        'assigned__profile',  
+    ]
+
+    search_fields = [
+        'title',
+        'priority__name',
+        'category__name',
+        'state__name',
+    ]
+
     ordering_fields = [
         'created_at',
         'due_date',
-    ]
-    search_fields = [
-        'owner__username',
-        'title',
-        'completed',
-        'priority',
-    ]
-    filterset_fields = [
-        'assigned__profile', 
-        'completed',
-        'priority',
     ]
 
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)
 
-
 class TaskDetail(generics.RetrieveUpdateDestroyAPIView):
-    """
-    A class to display a task detail.
-    """
     serializer_class = TaskSerializer
 
-    queryset = Task.objects.all()
+    def get_object(self, pk):
+        return get_object_or_404(Task, pk=pk)
+
+    def get(self, request, pk):
+        task = self.get_object(pk)
+        serializer = TaskSerializer(task)
+        return Response(serializer.data)
+
+    def put(self, request, pk):
+        task = self.get_object(pk)
+        serializer = TaskSerializer(task, data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    
+    def delete(self, request, pk):
+        task = self.get_object(pk)
+        task.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
