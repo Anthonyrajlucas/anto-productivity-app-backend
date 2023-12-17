@@ -18,9 +18,6 @@ class TaskList(generics.ListCreateAPIView):
     A class to list tasks.
     """
     serializer_class = TaskSerializer
-    permission_classes = [
-        permissions.IsAuthenticatedOrReadOnly
-    ]
     queryset = Task.objects.all()
     filter_backends = [
         filters.OrderingFilter,
@@ -51,7 +48,6 @@ class TaskDetail(generics.RetrieveUpdateDestroyAPIView):
     """
     A class to display a task detail.
     """
-    permission_classes = [IsOwnerOrReadOnly]
     serializer_class = TaskSerializer
 
     queryset = Task.objects.all()
