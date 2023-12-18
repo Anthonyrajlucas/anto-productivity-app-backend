@@ -47,14 +47,26 @@ class TaskDetail(generics.RetrieveUpdateDestroyAPIView):
     permission_classes = [IsOwnerOrReadOnly]
 
     def get_object(self, pk):
-        return get_object_or_404(Task, pk=pk)
+         try:
+            task = PTask.objects.get(pk=pk)
+            self.check_object_permissions(self.request, task)
+            return Task
+        except Task.DoesNotExist:
+            raise Http404
 
     def get(self, request, pk):
         task = self.get_object(pk)
-        serializer = TaskSerializer(task)
+        serializer = TaskSerializer(task , context={'request': request})
         self.check_object_permissions(self.request, task)
         return Response(serializer.data)
 
     def put(self, request, pk):
         task = self.get_object(pk)
-       
+        serializer = TaskSerializer(
+            task, data=request.data, context={'request': request}
+        )
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
