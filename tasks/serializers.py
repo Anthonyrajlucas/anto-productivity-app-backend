@@ -5,7 +5,7 @@ from datetime import date, datetime
 
 class TaskSerializer(serializers.ModelSerializer):
     assigned = serializers.PrimaryKeyRelatedField(queryset=User.objects.all(), many=True)
-    
+    owner = serializers.PrimaryKeyRelatedField(queryset=User.objects.all())
     class Meta:
         model = Task
         fields = [
