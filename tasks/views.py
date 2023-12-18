@@ -7,11 +7,11 @@ from .models import Task, Priority, Category
 from .serializers import TaskSerializer
 from django.http import Http404
 from rest_framework import status
-from drf_api.permissions import IsOwnerOrReadOnly
+from anto_prod_app_rest_api.permissions import IsOwnerOrReadOnly
 
 class TaskList(generics.ListCreateAPIView):
     serializer_class = TaskSerializer
-     permission_classes = [
+    permission_classes = [
         permissions.IsAuthenticatedOrReadOnly
     ]
     queryset = Task.objects.all()
@@ -44,6 +44,7 @@ class TaskList(generics.ListCreateAPIView):
 class TaskDetail(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = TaskSerializer
     permission_classes = [IsOwnerOrReadOnly]
+
     def get_object(self, pk):
         return get_object_or_404(Task, pk=pk)
 
@@ -55,14 +56,4 @@ class TaskDetail(generics.RetrieveUpdateDestroyAPIView):
 
     def put(self, request, pk):
         task = self.get_object(pk)
-        serializer = TaskSerializer(task, data=request.data)
-        self.check_object_permissions(self.request, task)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-    
-    def delete(self, request, pk):
-        task = self.get_object(pk)
-        task.delete()
-        return Response(status=status.HTTP_204_NO_CONTENT)
+       
