@@ -1,7 +1,17 @@
+"""
+A module for urls in the tasks app
+"""
+# Imports
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# 3rd party:
 from django.urls import path
-from tasks.views import TaskList, TaskDetail
+
+# Internal:
+from tasks import views
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 
 urlpatterns = [
-    path('tasks/', TaskList.as_view()),
-    path('tasks/<int:pk>/', TaskDetail.as_view()),
+    path('tasks/', views.TaskList.as_view()),
+    path('tasks/<int:pk>/', views.TaskDetail.as_view()),
 ]
