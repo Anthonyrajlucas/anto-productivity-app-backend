@@ -21,6 +21,7 @@ class TaskList(generics.ListCreateAPIView):
     permission_classes = [
         permissions.IsAuthenticatedOrReadOnly
     ]
+    queryset = Task.objects.all()
 
     filter_backends = [
         filters.OrderingFilter,
@@ -50,3 +51,4 @@ class TaskDetail(generics.RetrieveUpdateDestroyAPIView):
     """
     permission_classes = [IsOwnerOrReadOnly]
     serializer_class = TaskSerializer
+    queryset = Task.objects.all()
