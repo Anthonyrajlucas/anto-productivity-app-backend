@@ -21,7 +21,7 @@ class TaskSerializer(serializers.ModelSerializer):
         fields = [
             'id',
             'is_owner',
-            'owner'
+            'owner',
             'created_on',
             'title',
             'description',
