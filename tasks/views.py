@@ -30,15 +30,16 @@ class TaskList(generics.ListCreateAPIView):
     ]
 
     search_fields = [
-        'owner__username'
         'title',
-        'category',
-        'priority',
+        'category__name',  
+        'priority__name',  
+        'owner__username',  
     ]
     filterset_fields = [
-        'owner__profile',
-        'category',
-        'priority',
+        'title',
+        'category__name',  
+        'priority__name',  
+        'owner__username',  
     ]
 
     def perform_create(self, serializer):
