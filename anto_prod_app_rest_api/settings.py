@@ -30,7 +30,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
-        'dj_rest_auth.jwt_auth.JWTCookieAuthentication',
+        'dj_rest_auth.jwt_auth.JWTCookieAuthentication'
     ],
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
     'PAGE_SIZE': 10,
@@ -56,14 +56,16 @@ REST_AUTH_SERIALIZERS = {
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.getenv('SECRET_KEY')
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
-os.environ.setdefault("SECRET_KEY", "CreateANEWRandomValueHere")
+#os.environ.setdefault("SECRET_KEY", "CreateANEWRandomValueHere")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [ '8000-anthonyrajlucas-anto-pro-ij37pdrk7p.us2.codeanyapp.com',
+ALLOWED_HOSTS = [ 
+                  os.environ.get('ALLOWED_HOST'),
+                 '8000-anthonyrajlucas-anto-pro-ij37pdrk7p.us2.codeanyapp.com',
                   'localhost', 
                   'anto-productivity-app-backend-6c122e357cb1.herokuapp.com',
                   '8000-anthonyrajl-antoproduct-b9vdau46okg.ws-eu106.gitpod.io', 
@@ -82,16 +84,17 @@ CORS_ALLOW_METHODS = [
 ]
 
 INSTALLED_APPS = [
-    'cloudinary_storage',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'cloudinary_storage',
     'django.contrib.staticfiles',
+    'django_extensions',
     'cloudinary',
-    'django_filters',
     'rest_framework',
+    'django_filters',
     'rest_framework.authtoken',
     'dj_rest_auth',
     'django.contrib.sites',
@@ -99,6 +102,8 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'dj_rest_auth.registration',
+    'corsheaders',
+    'django.contrib.humanize',
     'corsheaders',
     'profiles',
     'categories',
