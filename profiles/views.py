@@ -15,7 +15,7 @@ class ProfileList(generics.ListAPIView):
     handled by django signals
     """
     serializer_class = ProfileSerializer
-    profiles = Profile.objects.all()   
+    queryset = Profile.objects.all()
 
 class ProfileDetail(generics.RetrieveUpdateDestroyAPIView):
     """
@@ -23,7 +23,7 @@ class ProfileDetail(generics.RetrieveUpdateDestroyAPIView):
     """
     serializer_class = ProfileSerializer
 #    permission_classes = [IsOwnerOrReadOnly]
-    profiles = Profile.objects.all()
+    queryset = Profile.objects.all()
 class UserList(APIView):
     """
     A class to list all site users.
