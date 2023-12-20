@@ -71,10 +71,6 @@ ALLOWED_HOSTS = [ '8000-anthonyrajlucas-anto-pro-ij37pdrk7p.us2.codeanyapp.com',
                   '8000-anthonyrajl-antoproduct-b9vdau46okg.ws-eu106.gitpod.io', 
                   '8000-anthonyrajl-antoproduct-roek4vuyysc.ws-eu107.gitpod.io']
 
-CSRF_COOKIE_SECURE = False  # If developing locally with HTTP
-
-CSRF_TRUSTED_ORIGINS = ['https://8000-anthonyrajl-antoproduct-roek4vuyysc.ws-eu107.gitpod.io']
-
 CORS_ORIGIN_ALLOW_ALL = True
 # Application definition
 
