@@ -15,11 +15,7 @@ class ProfileList(generics.ListAPIView):
     handled by django signals
     """
     serializer_class = ProfileSerializer
-    queryset = Profile.objects.annotate(
-        tasks_count=Count(
-            'owner__task',
-            distinct=True),
-    ).order_by('-created_on')    
+    profiles = Profile.objects.all()   
     filter_backends = [
         filters.OrderingFilter,
         filters.SearchFilter,
@@ -37,13 +33,8 @@ class ProfileDetail(generics.RetrieveUpdateDestroyAPIView):
     A class for a profile detail.
     """
     serializer_class = ProfileSerializer
-    permission_classes = [IsOwnerOrReadOnly]
-    queryset = Profile.objects.annotate(
-        tasks_count=Count(
-            'owner__task',
-            distinct=True),
-    ).order_by('-created_on')
-
+#    permission_classes = [IsOwnerOrReadOnly]
+    profiles = Profile.objects.all()
 class UserList(APIView):
     """
     A class to list all site users.
