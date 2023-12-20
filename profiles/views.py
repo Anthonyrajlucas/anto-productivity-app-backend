@@ -16,17 +16,6 @@ class ProfileList(generics.ListAPIView):
     """
     serializer_class = ProfileSerializer
     profiles = Profile.objects.all()   
-    filter_backends = [
-        filters.OrderingFilter,
-        filters.SearchFilter,
-        DjangoFilterBackend,
-    ]
-    search_fields = [
-        'owner__username',
-    ]
-    ordering_fields = [
-        'tasks_count',
-    ]
 
 class ProfileDetail(generics.RetrieveUpdateDestroyAPIView):
     """
