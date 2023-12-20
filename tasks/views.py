@@ -37,7 +37,7 @@ class TaskList(generics.ListCreateAPIView):
     ]
     filterset_fields = [
         'title',
-        'category__name',  
+        'category',  
         'priority__name',  
         'owner__username',  
     ]
