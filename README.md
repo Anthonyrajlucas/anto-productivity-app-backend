@@ -70,3 +70,17 @@ The following tests were carried out on the app:
 ### Manual testing of user stories
 
 
+
+
+##### Back to [top](#table-of-contents)
+
+
+## Credits
+
+
+### Code
+
+This project was created based on the Code Institute's Django REST API walkthrough project ['Moments'](https://github.com/Code-Institute-Solutions/drf-api).
+
+##### Back to [top](#table-of-contents)
+
