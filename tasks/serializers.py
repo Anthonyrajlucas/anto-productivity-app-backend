@@ -28,7 +28,6 @@ class TaskSerializer(serializers.ModelSerializer):
             'updated_on',
             'priority',
             'category', 
-            'state',
             'due_date',
             'assigned_to',
             'profile_id',

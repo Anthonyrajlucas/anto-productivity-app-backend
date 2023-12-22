@@ -25,7 +25,6 @@ class Task(models.Model):
     updated_on = models.DateTimeField(auto_now=True)
     priority = models.ForeignKey(Priority, on_delete=models.CASCADE)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
-    state = models.ForeignKey(State, on_delete=models.CASCADE)
     assigned_to = models.ForeignKey(User, blank=True,
                                     null=True,
                                     on_delete=models.SET_NULL,
