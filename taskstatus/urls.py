@@ -13,5 +13,5 @@ from taskstatus import views
 
 urlpatterns = [
     path('taskstatus/', views.TaskStatusList.as_view()),
-    path('taskstatus/', views.TaskStatusDetail.as_view()),
+    path('taskstatus/<int:pk>/', views.TaskStatusDetail.as_view()),
 ]
