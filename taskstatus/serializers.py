@@ -9,14 +9,14 @@ class TaskStatusSerializer(serializers.ModelSerializer):
     owner = serializers.ReadOnlyField(source='owner.username')
     is_owner = serializers.SerializerMethodField()
     profile_id = serializers.ReadOnlyField(source='owner.profile.id')
-    profile_image = serializers.ReadOnlyField(source='owner.profile.image.url')
+   
 
     def get_is_owner(self, obj):
         request = self.context['request']
         return request.user == obj.owner
 
     class Meta:
-        model = Task
+        model = TaskStatus
         fields = [
             'id',
             'is_owner',
@@ -24,6 +24,7 @@ class TaskStatusSerializer(serializers.ModelSerializer):
             'created_on',
             'updated_on',
             'state',
+            'task',
             'profile_id'
         ]
         read_only_fields = ['owner']
