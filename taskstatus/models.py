@@ -13,6 +13,7 @@ class TaskStatus(models.Model):
     task = models.ForeignKey(Task, on_delete=models.CASCADE)
 
     class Meta:
+        unique_together = ['owner', 'task']
         ordering = ['-created_at']
 
     def __str__(self):
