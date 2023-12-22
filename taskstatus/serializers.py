@@ -22,10 +22,12 @@ class TaskStatusSerializer(serializers.ModelSerializer):
             'is_owner',
             'owner',
             'created_on',
-            'updated_on',
             'state',
             'task',
             'profile_id'
         ]
         read_only_fields = ['owner']
      
+def update(self, instance, validated_data):
+        instance.created_on = timezone.now()
+        return super().update(instance, validated_data)
