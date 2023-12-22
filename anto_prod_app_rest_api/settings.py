@@ -108,6 +108,7 @@ INSTALLED_APPS = [
     'priorities',
     'states',
     'tasks',
+    'taskstatus',
 ]
 
 SITE_ID = 1
