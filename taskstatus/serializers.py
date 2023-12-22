@@ -21,7 +21,8 @@ class TaskStatusSerializer(serializers.ModelSerializer):
             'id',
             'is_owner',
             'owner',
-            'created_on',
+           'created_at', 
+           'updated_at',
             'state',
             'task',
             'profile_id'
