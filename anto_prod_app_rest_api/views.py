@@ -5,11 +5,10 @@ from .settings import (
     JWT_AUTH_SECURE,
 )
 
-
 @api_view()
 def root_route(request):
     return Response({
-        "message": "Welcome to my anto procutivity app API!"
+        "message": "Welcome to my anto productivity app API!"
     })
 
 @api_view(['POST'])

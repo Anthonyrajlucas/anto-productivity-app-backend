@@ -58,7 +58,26 @@ The following models were created to represent the database model structure of t
 
 ### Python Validation
 
-PEP8 was unavailable at the time of creating this project so [Pycodestyle](https://pypi.org/project/pycodestyle/) was used instead to continually check all Python code for errors and warnings.
+### Python
+The python code was tested using [PEP8ci](https://pep8ci.herokuapp.com/) validator.<br>
+
+**Pep8 results:**<br>
+
+<details>
+<summary>Main app</summary>
+
+* **settings.py**<br>
+![pep8-validation](docs/validation/main_settings.jpg)
+
+* **url.py**<br>
+![pep8-validation](docs/validation/main_url.py.jpg)
+
+* **view.py**<br>
+![pep8-validation](docs/validation/main_view.py.jpg)
+
+
+
+
 
 
 ## Testing
