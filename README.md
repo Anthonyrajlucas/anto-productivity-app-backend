@@ -115,12 +115,15 @@ The python code was tested using [PEP8ci](https://pep8ci.herokuapp.com/) validat
 * **view.py**<br>
 ![pep8-validation](docs/validation/main_view.py.jpg)
 
+</details>
+
 <details>
 <summary>Priorities app</summary>
 
 * **view.py**<br>
 ![pep8-validation](docs/validation/priorities_view.py.jpg)
 
+</details>
 
 
 
@@ -130,9 +133,26 @@ The python code was tested using [PEP8ci](https://pep8ci.herokuapp.com/) validat
 
 The following tests were carried out on the app:
 1. Manual testing of user stories
-2. Automated testing
+
 
 ### Manual testing of user stories
+
+- As an admin, I want to be able to create, edit and delete the users, posts, comments and likes, so that I can have a control over the content of the application and remove any potential inappropriate content
+
+**Test** | **Action** | **Expected Result** | **Actual Result**
+-------- | ------------------- | ------------------- | -----------------
+User | Create, update & delete user | A user can be created, edited or deleted | Works as expected
+User | Change permissions | User permissions can be updated | Works as expected
+Profile | Create, update & delete | User profile can be created, edited or deleted | Works as expected
+Task | Create, update & delete | A Task can be created, edited or deleted | Works as expected
+My Invention task | Create, edit & delete | my invention task can be created, edited or deleted | Works as expected
+ | profiles |  A profiles relationship between a Task and a User can be delete profile, update profile and upload image | Works as expected
+My duty task | update status | A dusty task can be update status, save and cancel | Works as expected
+
+
+In addition, tasks, my invention task, my duty task and profiles can be created by logged-in users only. Users can only update or delete the content which was created by themselves.
+
+
 
 
 
