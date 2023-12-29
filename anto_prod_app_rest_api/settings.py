@@ -60,7 +60,8 @@ ALLOWED_HOSTS = [
     'localhost',
     'anto-productivity-app-backend-6c122e357cb1.herokuapp.com',
     '8000-anthonyrajl-antoproduct-b9vdau46okg.ws-eu106.gitpod.io',
-    '8000-anthonyrajl-antoproduct-roek4vuyysc.ws-eu107.gitpod.io'
+    '8000-anthonyrajl-antoproduct-roek4vuyysc.ws-eu107.gitpod.io',
+    '8000-anthonyrajl-antoproduct-roek4vuyysc.ws-us107.gitpod.io'
 ]
 
 # CORS settings
