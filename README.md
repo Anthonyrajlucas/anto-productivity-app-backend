@@ -16,8 +16,9 @@ This repository contains the API set up using Django REST Framework for the Tick
 
 ## User Stories
 
-The back-end section of the project focuses on its administration side and covers one user story:
-- As an admin, I want to be able to create, edit and delete users, tasks, packsmy invention task, my duty task, so that I can have control over the content of the application and also remove any potential inappropriate content.
+- The back-end section of the project focuses on its administration side and covers one user story:
+
+- As an admin, I want to be able to create, edit, and delete users, tasks, task statuses, categories, priorities, and statuses. so that I can have control over the content of the application and also remove any potentially inappropriate content.
 
 
 ## Database
@@ -27,11 +28,50 @@ The following models were created to represent the database model structure of t
 
 #### User Model
 
+- The User model contains information about the user. It is part of the Django all auth library.
+- One-to-one relation with the Profile model owner field
+- ForeignKey relation with the Task model owner
+- ForeignKey relation with the TaskStatus model
 
+#### Profile Model
 
+- The Profile model contains the following fields: owner, name, created_on, updated_on, and an image
 
+- One-to-one relation between the owner field and user ID field
+
+#### Task Model
+
+- The Task model contains the following fields: owner, created_on, title, description, due_date,is_overdue,updated_on, priority, category, and assigned_to.
+- ForeignKey relation with the owner field
+- ForeignKey relation with the assigned_to field
+- ForeignKey relation with the priority field
+- ForeignKey relation with the category field
+- ForeignKey relation with the status field
+- ForeignKey relation between the owner field and the User ID field
+
+#### TaskStatus Model
+- The TaskStatus model contains the following fields: owner, created_at, updated_at, state, task, and profile_id.
+- ForeignKey relation with the owner field
+- ForeignKey relation between the owner field and the User id field
+- ForeignKey relation with the Task
+
+#### Category Model
+- The Category model contains the following fields: id and name.
+
+#### Priority Model
+- The Priority model contains the following fields: id and name.
+
+#### Priority Model
+- The Priority model contains the following fields: id and name.
+
+#### Status Model
+- The Status model contains the following fields: id and name.
 
 ## Technologies Used
+
+- Languages & Frameworks
+- Python
+- Django
 
 ### Languages & Frameworks
 
