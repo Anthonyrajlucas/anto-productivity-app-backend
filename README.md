@@ -115,6 +115,12 @@ The python code was tested using [PEP8ci](https://pep8ci.herokuapp.com/) validat
 * **view.py**<br>
 ![pep8-validation](docs/validation/main_view.py.jpg)
 
+<details>
+<summary>Priorities app</summary>
+
+* **view.py**<br>
+![pep8-validation](docs/validation/priorities_view.py.jpg)
+
 
 
 
