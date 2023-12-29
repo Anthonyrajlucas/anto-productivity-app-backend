@@ -149,53 +149,75 @@ My duty task | update status | A dusty task can be update status, save and cance
 
 In addition, tasks, my invention task, my duty task and profiles can be created by logged-in users only. Users can only update or delete the content which was created by themselves.
 
-<details><summary>Screenshots - USER</summary>
-    <details><summary>Create user</summary>
-    <img src="docs/testing/manual/user-create-test-1.png">
+<details><summary>Screenshots - Categery</summary>
+    <details><summary>Category</summary>
+    <img src="docs/datamodel/catogery/category_save.png">
     <br>
-    <img src="docs/testing/manual/user-create-test-2.png">
+    <img src="docs/datamodel/catogery/create-category.png">
     <br>
-    <img src="docs/testing/manual/user-create-test-3.png">
-    <br>
-    </details>
-</details>
-
-<details><summary>Screenshots - PROFILE</summary>
-    <details><summary>Update profile</summary>
-    <img src="docs/testing/manual/profile-update-test-1.png">
-    <br>
-    <img src="docs/testing/manual/profile-update-test-2.png">
-    <br>
-    <img src="docs/testing/manual/profile-update-test-3.png">
-    <br>
-    </details>
-    <details><summary>Delete profile</summary>
-    <img src="docs/testing/manual/profile-delete-test-1.png">
-    <br>
-    <img src="docs/testing/manual/profile-delete-test-2.png">
-    <br>
-    <img src="docs/testing/manual/profile-delete-test-3.png">
-    <br>
-    <img src="docs/testing/manual/profile-delete-test-4.png">
+    <img src="docs/datamodel/catogery/save-delete-category.png">
     <br>
     </details>
 </details>
 
-<details><summary>Screenshots - TASK</summary>
-    <details><summary>Create task</summary>
-    <img src="docs/testing/manual/task-create-test-1.png">
+<details><summary>Screenshots - Priority</summary>
+    <details><summary>Priority</summary>
+    <img src="docs/datamodel/priority/create-priority.png">
     <br>
-    <img src="docs/testing/manual/task-create-test-2.png">
+    <img src="docs/datamodel/priority/delete-priority.png">
     <br>
-    <img src="docs/testing/manual/task-create-test-3.png">
+    <img src="docs/datamodel/priority/update-priority.png">
+    <br>
+    <img src="docs/datamodel/priority/update-priority1.png">
     <br>
     </details>
+    </details>
+    <details><summary>Screenshots -Profile</summary>
+    <details><summary>Profile</summary>
+    <img src="docs/datamodel/profile/delete-profile.png">
+    <br>
+    <img src="docs/datamodel/profile/profile-update-1.png">
+    <br>
+    <img src="docs/datamodel/profile/profile-update-2.png">
+    <br>
+    </details>
+</details>
 
-
-
-
-
-
+  <details><summary>Screenshots-Status</summary>
+   <details><summary>Status</summary>
+    <img src="docs/datamodel/status/status-create.jpg">
+    <br>
+    <img src="docs/datamodel/status/status-save.jpg">
+    <br>
+    <img src="docs/datamodel/status/status-update-delete.jpg">
+    <br>
+   </details>
+  </details>
+    <details><summary>Screenshots-Task</summary>
+    <details><summary>Task</summary>
+    <img src="docs/datamodel/task/task-change-task.jpg">
+    <br>
+    <img src="docs/datamodel/task/tasks.jpg">
+    </details>
+    </details>
+    <details><summary>Screenshots-Task Status</summary>
+    <details><summary>Task Status</summary>
+    <img src="docs/datamodel/taskstatus/task-status-change.jpg">
+    <br>
+    <img src="docs/datamodel/taskstatus/task-status.jpg">
+    </details>
+    </details>
+     <details><summary>Screenshot-User Model</summary>
+    <details><summary>User Model</summary>
+    <img src="docs/datamodel/usermodel/create-user-1.png">
+    <br>
+    <img src="docs/datamodel/usermodel/create-user-2.png">
+    <br>
+    <br>
+    <img src="docs/datamodel/usermodel/create-user-3.png">
+    <br>
+    </details>
+    </details>
 
 ##### Back to [top](#table-of-contents)
 
@@ -205,7 +227,8 @@ In addition, tasks, my invention task, my duty task and profiles can be created 
 
 ### Code
 
-This project was created based on the Code Institute's Django REST API walkthrough project ['Moments'](https://github.com/Code-Institute-Solutions/drf-api).
+- This project was created based on the Code Institute's Django REST API walkthrough project ['Moments'](https://github.com/Code-Institute-Solutions/drf-api).
+- Code Institute tutor Mr.John support who helped with the many issues I had during this project.
 
 ##### Back to [top](#table-of-contents)
 
