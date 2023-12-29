@@ -24,7 +24,7 @@ This repository contains the API set up using Django REST Framework for the Tick
 ## Database
 
 The following models were created to represent the database model structure of the application:
-<img src="">
+<img src="docs/validation/entity-model.jpg">
 
 #### User Model
 
