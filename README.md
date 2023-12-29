@@ -126,9 +126,6 @@ The python code was tested using [PEP8ci](https://pep8ci.herokuapp.com/) validat
 </details>
 
 
-
-
-
 ## Testing
 
 The following tests were carried out on the app:
@@ -151,6 +148,49 @@ My duty task | update status | A dusty task can be update status, save and cance
 
 
 In addition, tasks, my invention task, my duty task and profiles can be created by logged-in users only. Users can only update or delete the content which was created by themselves.
+
+<details><summary>Screenshots - USER</summary>
+    <details><summary>Create user</summary>
+    <img src="docs/testing/manual/user-create-test-1.png">
+    <br>
+    <img src="docs/testing/manual/user-create-test-2.png">
+    <br>
+    <img src="docs/testing/manual/user-create-test-3.png">
+    <br>
+    </details>
+</details>
+
+<details><summary>Screenshots - PROFILE</summary>
+    <details><summary>Update profile</summary>
+    <img src="docs/testing/manual/profile-update-test-1.png">
+    <br>
+    <img src="docs/testing/manual/profile-update-test-2.png">
+    <br>
+    <img src="docs/testing/manual/profile-update-test-3.png">
+    <br>
+    </details>
+    <details><summary>Delete profile</summary>
+    <img src="docs/testing/manual/profile-delete-test-1.png">
+    <br>
+    <img src="docs/testing/manual/profile-delete-test-2.png">
+    <br>
+    <img src="docs/testing/manual/profile-delete-test-3.png">
+    <br>
+    <img src="docs/testing/manual/profile-delete-test-4.png">
+    <br>
+    </details>
+</details>
+
+<details><summary>Screenshots - TASK</summary>
+    <details><summary>Create task</summary>
+    <img src="docs/testing/manual/task-create-test-1.png">
+    <br>
+    <img src="docs/testing/manual/task-create-test-2.png">
+    <br>
+    <img src="docs/testing/manual/task-create-test-3.png">
+    <br>
+    </details>
+
 
 
 
