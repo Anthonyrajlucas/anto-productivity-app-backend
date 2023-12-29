@@ -4,7 +4,7 @@
 
 💻 [Live link]()
 
-This repository contains the API set up using Django REST Framework for the Tick It front-end application ([repository here]() and [live website here]())
+This repository contains the API set up using Django REST Framework for the Anto-Productivity-App front-end application ([repository here](https://github.com/Anthonyrajlucas/anto-productivity-app-backend) and [live website here](https://anto-productivity-app-backend-6c122e357cb1.herokuapp.com/))
 
 ## Table of Contents
   - [User Stories](#user-stories)
